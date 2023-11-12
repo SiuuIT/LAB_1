@@ -10,101 +10,114 @@ public class Cars implements Movable {
     private double x_coordinate = 0;
     private double y_coordinate = 0;
     protected Directions direction;
-    public enum Directions{
+
+    public enum Directions {
         EAST,
         WEST,
         NORTH,
         SOUTH
     }
-    public Directions getDirection(){
+
+    public Directions getDirection() {
         return direction;
     }
+
     public int getNrDoors() {
         return nrDoors;
     }
+
     public double getEnginePower() {
         return enginePower;
     }
+
     public double getCurrentSpeed() {
         return currentSpeed;
     }
+
     protected Color getColor() {
         return color;
     }
-    public double getX(){return this.x_coordinate;
+
+    public double getX() {
+        return this.x_coordinate;
     }
-    public double getY(){return this.y_coordinate;
+
+    public double getY() {
+        return this.y_coordinate;
     }
+
     public void setColor(Color clr) {
         color = clr;
     }
+
     protected void startEngine() {
         currentSpeed = 0.1;
     }
+
     protected void stopEngine() {
         currentSpeed = 0;
     }
+
     protected void incrementSpeed(double amount) {
         currentSpeed = Math.min((getCurrentSpeed() + (speedFactor() * amount)), enginePower);
     }
+
     protected double speedFactor() {
         return 0;
     }
+
     public void gas(double amount) {
-        if(0.0D <= amount && amount <= 1.0D) {
+        if (0.0D <= amount && amount <= 1.0D) {
             incrementSpeed(amount);
         }
     }
+
     public void brake(double amount) {
-        if(0.0D <= amount && amount <= 1.0D) {
+        if (0.0D <= amount && amount <= 1.0D) {
             decrementSpeed(amount);
         }
     }
+
     protected void decrementSpeed(double amount) {
         currentSpeed = Math.max((getCurrentSpeed() - (speedFactor() * amount)), 0);
     }
+
     public void move() {
-            if (direction == Directions.WEST) {
-                x_coordinate -= getCurrentSpeed();
-                }
-            else if (direction == Directions.EAST) {
-                    x_coordinate += getCurrentSpeed();
-                }
-            else if (direction == Directions.SOUTH) {
-                y_coordinate -= getCurrentSpeed();
-                }
-            else {
-                y_coordinate = y_coordinate+ getCurrentSpeed();
-                }
+        if (direction == Directions.WEST) {
+            x_coordinate -= getCurrentSpeed();
+        } else if (direction == Directions.EAST) {
+            x_coordinate += getCurrentSpeed();
+        } else if (direction == Directions.SOUTH) {
+            y_coordinate -= getCurrentSpeed();
+        } else {
+            y_coordinate = y_coordinate + getCurrentSpeed();
         }
+    }
+
     public void turnLeft() {
-        if (direction == Directions.NORTH){
+        if (direction == Directions.NORTH) {
             this.direction = Directions.WEST;
-        }
-        else if (direction == Directions.WEST){
+        } else if (direction == Directions.WEST) {
             this.direction = Directions.SOUTH;
+        } else if (direction == Directions.SOUTH) {
+            this.direction = Directions.EAST;
+        } else if (direction == Directions.EAST) {
+            this.direction = Directions.NORTH;
         }
-        else if (direction == Directions.SOUTH) {
-            direction = Directions.EAST;
-        }
-        else {
-            direction = Directions.NORTH;}
-        }
+    }
+
     public void turnRight() {
-        if (direction == Directions.NORTH){
-            direction = Directions.EAST;
+        if (direction == Directions.NORTH) {
+            this.direction = Directions.EAST;
+        } else if (direction == Directions.WEST) {
+            this.direction = Directions.NORTH;
+        } else if (direction == Directions.SOUTH) {
+            this.direction = Directions.WEST;
+        } else if (direction == Directions.EAST) {
+            this.direction = Directions.NORTH;
         }
-        else if (direction == Directions.WEST){
-            direction = Directions.NORTH;
-        }
-        else if (direction == Directions.SOUTH) {
-            direction = Directions.WEST;
-        }
-        else {
-            direction = Directions.SOUTH;}
     }
 }
-
 
 
 
