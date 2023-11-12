@@ -1,12 +1,24 @@
 import java.awt.*;
 
 public class Cars implements Movable {
-    protected int direction = 2;
+
     protected int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
     protected Color color; // Color of the car
     protected String modelName; // The car model name
+    private double x_coordinate = 0;
+    private double y_coordinate = 0;
+    protected Directions direction;
+    public enum Directions{
+        EAST,
+        WEST,
+        NORTH,
+        SOUTH
+    }
+    public Directions getDirection(){
+        return direction;
+    }
     public int getNrDoors() {
         return nrDoors;
     }
@@ -18,6 +30,10 @@ public class Cars implements Movable {
     }
     protected Color getColor() {
         return color;
+    }
+    public double getX(){return this.x_coordinate;
+    }
+    public double getY(){return this.y_coordinate;
     }
     public void setColor(Color clr) {
         color = clr;
@@ -47,42 +63,48 @@ public class Cars implements Movable {
     protected void decrementSpeed(double amount) {
         currentSpeed = Math.max((getCurrentSpeed() - (speedFactor() * amount)), 0);
     }
-    private double x_coordinate = 0;
-    private double y_coordinate = 0;
-    public double getX(){return this.x_coordinate;
-    }
-    public double getY(){return this.y_coordinate;
-    }
     public void move() {
-        if (direction == 1 || direction == 3) {
-            if (direction == 1) {
+            if (direction == Directions.WEST) {
                 x_coordinate -= getCurrentSpeed();
-            }
-                if (direction == 3) {
+                }
+            else if (direction == Directions.EAST) {
                     x_coordinate += getCurrentSpeed();
                 }
-        }
-        if (direction == 4 || direction == 2) {
-            if (direction == 4) {
+            else if (direction == Directions.SOUTH) {
                 y_coordinate -= getCurrentSpeed();
                 }
-            if (direction == 2) {
+            else {
                 y_coordinate = y_coordinate+ getCurrentSpeed();
                 }
         }
-    }
     public void turnLeft() {
-        direction = direction - 1;
-        if (direction == 0) {
-            direction = 4;
+        if (direction == Directions.NORTH){
+            this.direction = Directions.WEST;
         }
-    }
+        else if (direction == Directions.WEST){
+            this.direction = Directions.SOUTH;
+        }
+        else if (direction == Directions.SOUTH) {
+            direction = Directions.EAST;
+        }
+        else {
+            direction = Directions.NORTH;}
+        }
     public void turnRight() {
-        direction += 1;
-        if (direction == 5) {
-            direction = 1;
+        if (direction == Directions.NORTH){
+            direction = Directions.EAST;
         }
+        else if (direction == Directions.WEST){
+            direction = Directions.NORTH;
+        }
+        else if (direction == Directions.SOUTH) {
+            direction = Directions.WEST;
+        }
+        else {
+            direction = Directions.SOUTH;}
     }
 }
+
+
 
 

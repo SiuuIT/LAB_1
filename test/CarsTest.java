@@ -3,8 +3,7 @@ import org.junit.Test;
 
 import java.awt.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class CarsTest {
     private Volvo volvo;
@@ -68,15 +67,14 @@ public class CarsTest {
     @Test
     public void testMoveY() {
         volvo.currentSpeed = 1;
-        volvo.direction = 4;
         volvo.move();
         volvo.stopEngine();
-        assertEquals(-1, volvo.getY(),0.0);
+        assertEquals(1, volvo.getY(),0.0);
     }
     @Test
     public void testMoveX() {
         volvo.currentSpeed = 1;
-        volvo.direction = 3;
+        volvo.turnRight();
         volvo.move();
         volvo.stopEngine();
         assertEquals(1, volvo.getX(), 0.0);
@@ -88,12 +86,12 @@ public class CarsTest {
     @Test
     public void testTurnLeft() {
         volvo.turnLeft();
-        assertEquals(1,volvo.direction);
+        assertSame(Cars.Directions.WEST, volvo.getDirection());
     }
     @Test
     public void testTurnRight() {
         volvo.turnRight();
-        assertEquals(3,volvo.direction);
+        assertEquals(Cars.Directions.EAST, volvo.getDirection());
     }
     @Test
     public void testGas() {
