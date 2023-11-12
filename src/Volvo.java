@@ -2,7 +2,7 @@ import java.awt.*;
 
 class Volvo extends Cars {
     protected Volvo(){
-        Directions direction = Directions.NORTH;
+        direction = Directions.NORTH;
         nrDoors = 4;
         color = Color.black;
         enginePower = 100;
