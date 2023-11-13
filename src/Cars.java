@@ -34,7 +34,7 @@ public class Cars implements Movable {
         return currentSpeed;
     }
 
-    protected Color getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -50,11 +50,11 @@ public class Cars implements Movable {
         color = clr;
     }
 
-    protected void startEngine() {
+    public void startEngine() {
         currentSpeed = 0.1;
     }
 
-    protected void stopEngine() {
+    public void stopEngine() {
         currentSpeed = 0;
     }
 
@@ -101,7 +101,7 @@ public class Cars implements Movable {
             this.direction = Directions.SOUTH;
         } else if (direction == Directions.SOUTH) {
             this.direction = Directions.EAST;
-        } else if (direction == Directions.EAST) {
+        } else  {
             this.direction = Directions.NORTH;
         }
     }
@@ -113,8 +113,8 @@ public class Cars implements Movable {
             this.direction = Directions.NORTH;
         } else if (direction == Directions.SOUTH) {
             this.direction = Directions.WEST;
-        } else if (direction == Directions.EAST) {
-            this.direction = Directions.NORTH;
+        } else  {
+            this.direction = Directions.SOUTH;
         }
     }
 }
