@@ -7,14 +7,8 @@ public class Scania extends Cars {
         enginePower = 400;
         modelName = "temp";
         stopEngine();
-        angleCheck();
     }
 
-    private void angleCheck() { // såhär får man nog inte göra
-        while (this.truckBedAngle != 0) {
-            this.currentSpeed = 0;
-        }
-    }
     private double truckBedAngle = 0;
 
         @Override
