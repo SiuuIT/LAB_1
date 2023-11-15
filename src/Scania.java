@@ -5,37 +5,47 @@ public class Scania extends Cars {
         nrDoors = 2;
         color = Color.blue;
         enginePower = 400;
-        modelName = "temp";
+        modelName = "Scania";
         stopEngine();
     }
 
     private double truckBedAngle = 0;
 
-        @Override
-    public double speedFactor () {
+    @Override
+    protected double speedFactor() {
         return 1;
-        }
+    }
 
-    public double getTruckBedAngle () {
+    public double getTruckBedAngle() {
         return this.truckBedAngle;
     }
 
-    public void raiseAngle ( double amount){
+    public void raiseAngle(double amount) {
         boolean b = this.getCurrentSpeed() == 0;
         if (b) {
             truckBedAngle += amount;
+            this.enginePower = 0;
             if (truckBedAngle > 70) {
                 truckBedAngle = 70;
             }
         }
     }
-    public void lowerAngle ( double amount){
+
+    public void lowerAngle(double amount) {
         boolean b = this.getCurrentSpeed() == 0;
         if (b) {
             truckBedAngle -= amount;
-            if (truckBedAngle < 0) {
+            if (truckBedAngle < 0 || truckBedAngle == 0) {
                 truckBedAngle = 0;
+                enginePower = 400;
             }
+        }
+    }
+
+    @Override
+    public void startEngine() {
+        if (this.enginePower != 0) {
+            super.startEngine();
         }
     }
 }
