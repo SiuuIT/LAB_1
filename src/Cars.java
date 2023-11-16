@@ -26,6 +26,10 @@ public class Cars implements Movable {
         return nrDoors;
     }
 
+    public String getModelName() {
+        return modelName;
+    }
+
     public double getEnginePower() {
         return enginePower;
     }
