@@ -42,25 +42,19 @@ public class CarTransport extends Cars {
 
     public boolean checkProximity(Cars car) {
         return Math.abs(car.getX() - this.getX()) <= 5 && Math.abs(car.getY() - this.getY()) <= 5;
-    }
+        }
     public void lassa(Cars car) {
         if (!(car instanceof CarTransport) && this.getRamp() && this.checkProximity(car)){
-            carList.add(car);
+                carList.add(car);
+            }
         }
-    }
     public void lossa() {
         if (this.carList != null && !this.carList.isEmpty()) {
             this.carList.removeLast();
         }
     }
-}
 
     public ArrayList<Cars> getLoadedCars() {
         return new ArrayList<>(carList);
-    }
-
-    @Override
-    public String toString() {
-        return modelName;
     }
 }
