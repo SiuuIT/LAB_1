@@ -1,33 +1,33 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Workshop<T> {
-    private List<T> cars;
+public class Workshop<T extends Cars> {
+    private List<T> carsInWorkshop;
     private final int maxCapacity;
 
     public Workshop(int maxCapacity) {
-        this.cars = new ArrayList<>();
+        this.carsInWorkshop = new ArrayList<>();
         this.maxCapacity = maxCapacity;
     }
 
-    public void acceptCar(T car) {
+    private boolean isSpaceAvailable() {
+        return carsInWorkshop.size() < maxCapacity;
+    }
+
+    public void receiveCar(T car) {
         if (isSpaceAvailable()) {
-            cars.add(car);
-            System.out.println(car.getClass().getSimpleName() + " accepted in the workshop.");
+            carsInWorkshop.add(car);
+            System.out.println(car.getModelName() + " received in the workshop.");
         } else {
             System.out.println("Workshop is full.");
         }
     }
 
-    private boolean isSpaceAvailable() {
-        return cars.size() < maxCapacity;
-    }
-
-    public T releaseCar() {
-        if (!cars.isEmpty()) {
-            T releasedCar = cars.remove(cars.size() - 1);
-            System.out.println(releasedCar.getClass().getSimpleName() + " released from the workshop.");
-            return releasedCar;
+    public T returnCar() {
+        if (!carsInWorkshop.isEmpty()) {
+            T returnedCar = carsInWorkshop.remove(carsInWorkshop.size() - 1);
+            System.out.println(returnedCar.getModelName() + " returned from the workshop.");
+            return returnedCar;
         } else {
             System.out.println("Workshop is empty.");
             return null;
@@ -35,16 +35,16 @@ public class Workshop<T> {
     }
 
     public static void main(String[] args) {
-        Workshop<Scania> scaniaWorkshop = new Workshop<>(3);
-        Workshop<CarTransport> transportWorkshop = new Workshop<>(2);
+        Workshop<Volvo> volvoWorkshop = new Workshop<>(3);
+        Workshop<Saab> saabWorkshop = new Workshop<>(2);
 
-        scaniaWorkshop.acceptCar(new Scania());
-        transportWorkshop.acceptCar(new CarTransport());
+        volvoWorkshop.receiveCar(new Volvo());
+        saabWorkshop.receiveCar(new Saab());
 
-        Scania releasedScania = scaniaWorkshop.releaseCar();
-        CarTransport releasedTransport = transportWorkshop.releaseCar();
+        Volvo returnedVolvo = volvoWorkshop.returnCar();
+        Saab returnedSaab = saabWorkshop.returnCar();
 
-        System.out.println("Released Scania: " + releasedScania);
-        System.out.println("Released CarTransport: " + releasedTransport);
+        System.out.println("Returned Volvo: " + returnedVolvo);
+        System.out.println("Returned Saab: " + returnedSaab);
     }
 }
