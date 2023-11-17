@@ -10,7 +10,7 @@ public class Workshop<T extends Cars> {
         this.maxCapacity = maxCapacity;
     }
 
-    private boolean isSpaceAvailable() {
+    protected boolean isSpaceAvailable() {
         return carsInWorkshop.size() < maxCapacity;
     }
 
