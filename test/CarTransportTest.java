@@ -11,6 +11,7 @@ public class CarTransportTest {
 
     @Test
     public void checkIfRampCanBeLoweredWhenSpeedIsNot0() {
+        carTransport.startEngine();
         carTransport.gas(100);
         carTransport.lowerRamp();
         assertFalse(carTransport.getRamp());

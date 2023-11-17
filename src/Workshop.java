@@ -41,10 +41,7 @@ public class Workshop<T extends Cars> {
         volvoWorkshop.receiveCar(new Volvo());
         saabWorkshop.receiveCar(new Saab());
 
-        Volvo returnedVolvo = volvoWorkshop.returnCar();
-        Saab returnedSaab = saabWorkshop.returnCar();
-
-        System.out.println("Returned Volvo: " + returnedVolvo);
-        System.out.println("Returned Saab: " + returnedSaab);
+        volvoWorkshop.returnCar();
+        saabWorkshop.returnCar();
     }
 }

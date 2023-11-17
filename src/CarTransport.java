@@ -22,21 +22,23 @@ public class CarTransport extends Cars {
     }
 
     public void lowerRamp() {
-        if (this.currentSpeed == 0) {
+        if (this.currentSpeed == 0 && !ramp) {
             this.enginePower = 0;
             ramp = true;
         }
     }
 
     public void raiseRamp() {
-        this.enginePower = 300;
-        ramp = false;
+        if (this.currentSpeed == 0 && ramp) {
+            this.enginePower = 300;
+            ramp = false;
+        }
     }
 
     @Override
     public void startEngine() {
         if (this.enginePower != 0) {
-            super.startEngine();
+            this.startEngine();
         }
     }
 
