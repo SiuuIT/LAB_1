@@ -21,14 +21,14 @@ public class CarTransport extends Cars {
         return this.ramp;
     }
 
-    public void lowerRamp() {
+    public void rampDown() {
         if (this.currentSpeed == 0 && !ramp) {
             this.enginePower = 0;
             ramp = true;
         }
     }
 
-    public void raiseRamp() {
+    public void rampUp() {
         if (this.currentSpeed == 0 && ramp) {
             this.enginePower = 300;
             ramp = false;
@@ -37,8 +37,8 @@ public class CarTransport extends Cars {
 
     @Override
     public void startEngine() {
-        if (this.enginePower != 0) {
-            this.startEngine();
+        if (!ramp) {
+            this.currentSpeed = 0.1;
         }
     }
 

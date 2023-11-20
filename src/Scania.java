@@ -45,7 +45,7 @@ public class Scania extends Cars {
     @Override
     public void startEngine() {
         if (this.enginePower != 0) {
-            super.startEngine();
+            this.currentSpeed = 0.1;
         }
     }
 }
