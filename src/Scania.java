@@ -1,5 +1,6 @@
 import java.awt.*;
 public class Scania extends Cars {
+    private Ramp ramp;
     protected Scania() {
         direction = Directions.NORTH;
         nrDoors = 2;
