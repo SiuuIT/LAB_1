@@ -53,29 +53,23 @@ public class Cars implements Movable {
     public void setColor(Color clr) {
         color = clr;
     }
-
     public void startEngine() {
         currentSpeed = 0.1;
     }
-
     public void stopEngine() {
         currentSpeed = 0;
     }
-
     protected void incrementSpeed(double amount) {
         currentSpeed = Math.min((getCurrentSpeed() + (speedFactor() * amount)), enginePower);
     }
-
     protected double speedFactor() {
         return 0;
     }
-
     public void gas(double amount) {
         if (0.0D <= amount && amount <= 1.0D) {
             incrementSpeed(amount);
         }
     }
-
     public void brake(double amount) {
         if (0.0D <= amount && amount <= 1.0D) {
             decrementSpeed(amount);

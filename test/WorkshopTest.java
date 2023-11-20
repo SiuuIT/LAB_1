@@ -22,7 +22,7 @@ public class WorkshopTest {
 
     @Test
     public void testReceiveCar() {
-
+        //workshopVolvo.receiveCar(saab);
         assertTrue(workshopVolvo.isSpaceAvailable());
         workshopVolvo.receiveCar(volvo1);
         assertTrue(workshopVolvo.isSpaceAvailable());

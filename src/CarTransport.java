@@ -48,8 +48,7 @@ public class CarTransport extends Cars {
     public void unload(Cars car) {
         if (this.carList != null && !this.carList.isEmpty()) {
             this.carList.removeLast();
-            car.y_coordinate = this.y_coordinate - 15;
-            car.x_coordinate = this.x_coordinate - 10;
+            car.y_coordinate = this.y_coordinate - 5;
         }
     }
     public ArrayList<Cars> getLoadedCars() {
@@ -63,4 +62,5 @@ public class CarTransport extends Cars {
             car.y_coordinate = this.y_coordinate;
         }
     }
+
 }

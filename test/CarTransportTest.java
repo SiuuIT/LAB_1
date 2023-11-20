@@ -11,8 +11,6 @@ public class CarTransportTest {
         carTransport = new CarTransport();
         volvo = new Volvo();
     }
-
-
     @Test
     public void checkIfRampCantBeLoweredWhenSpeedIsNot0() {
         carTransport.raiseRamp();
@@ -77,7 +75,4 @@ public class CarTransportTest {
         assertEquals(0.0, volvo.x_coordinate,0.0);
         assertEquals(0.0, carTransport.x_coordinate,0.0);
     }
-
-
-
 }

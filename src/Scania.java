@@ -20,7 +20,7 @@ public class Scania extends Cars {
     public void raiseAngle(double amount) {
         boolean b = this.getCurrentSpeed() == 0;
         if (b) {
-            ramp.raise(amount);
+            this.ramp.raise(amount);
             if (this.ramp.getAngle() > 0){
                 this.enginePower = 0;
                 }
@@ -29,9 +29,9 @@ public class Scania extends Cars {
     public void lowerAngle(double amount) {
         boolean b = this.getCurrentSpeed() == 0;
         if (b) {
-            ramp.lower(amount);
-            if (ramp.getAngle() == 0) {
-                enginePower = 400;
+            this.ramp.lower(amount);
+            if (this.ramp.getAngle() == 0) {
+                this.enginePower = 400;
             }
         }
     }
