@@ -7,8 +7,8 @@ public class Cars implements Movable {
     protected double currentSpeed; // The current speed of the car
     protected Color color; // Color of the car
     protected String modelName; // The car model name
-    private double x_coordinate = 0;
-    private double y_coordinate = 0;
+    protected double x_coordinate = 0;
+    protected double y_coordinate = 0;
     protected Directions direction;
 
     public enum Directions {

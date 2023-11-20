@@ -19,7 +19,7 @@ public class CarTransportTest {
     }
     @Test
     public void checkIfCarCanStartWhenRampIsLowered(){
-        carTransport.rampDown();
+        carTransport.lowerRamp();
         carTransport.startEngine();
         carTransport.gas(100);
         assertEquals(0, carTransport.getCurrentSpeed(), 0.0);
