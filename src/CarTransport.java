@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 public class CarTransport extends Cars {
-    private boolean ramp;
-    private ArrayList<Cars> carList;
+    private final Ramp ramp;
+    protected ArrayList<Cars> carList;
 
     protected CarTransport() {
         direction = Directions.NORTH;
