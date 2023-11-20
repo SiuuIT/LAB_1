@@ -11,10 +11,11 @@ public class CarTransportTest {
 
     @Test
     public void checkIfRampCantBeLoweredWhenSpeedIsNot0() {
+        carTransport.raiseRamp();
         carTransport.startEngine();
         carTransport.gas(100);
-        carTransport.rampUp();
-        assertFalse(carTransport.getRamp());
+        carTransport.lowerRamp();
+        assertTrue(carTransport.getRamp());
     }
     @Test
     public void checkIfCarCanStartWhenRampIsLowered(){
@@ -24,9 +25,9 @@ public class CarTransportTest {
         assertEquals(0, carTransport.getCurrentSpeed(), 0.0);
     }
     @Test
-    public void checkIfRampCanBeRaisedWhenStillAndWhenMoving(){
-    carTransport.rampDown();
-    carTransport.rampUp();
-    assertFalse(carTransport.getRamp());
+    public void checkIfRampCanBeRaisedWhenStill(){
+    carTransport.lowerRamp();
+    carTransport.raiseRamp();
+    assertTrue(carTransport.getRamp());
     }
 }

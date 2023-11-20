@@ -4,11 +4,14 @@ import static org.junit.Assert.*;
 
 public class ScaniaTest {
     private Scania scania;
+
     @Before
     public void init() {scania = new Scania();}
     @Test
     public void checkIfAngleIsMax70(){
-        scania.raiseAngle(9000);
+        scania.raiseAngle(70);
+        assertEquals(70, scania.getTruckBedAngle(), 0.0);
+        scania.raiseAngle(70);
         assertEquals(70, scania.getTruckBedAngle(), 0.0);
     }
 
