@@ -14,17 +14,6 @@ public class Workshop<T extends Cars> {
         return cars.size() < maxCapacity;
     }
 
-    public T releaseCar() {
-        if (!cars.isEmpty()) {
-            T releasedCar = cars.remove(cars.size() - 1);
-            System.out.println(releasedCar.getModelName() + " released from the workshop.");
-            return releasedCar;
-        } else {
-            System.out.println("Workshop is empty.");
-            return null;
-        }
-    }
-
     public void acceptCarTransport(CarTransport carTransport) {
         List<Cars> loadedCars = carTransport.getLoadedCars();
         for (Cars loadedCar : loadedCars) {
@@ -38,6 +27,16 @@ public class Workshop<T extends Cars> {
         }
     }
 
+    public T releaseCar() {
+        if (!cars.isEmpty()) {
+            T releasedCar = cars.remove(cars.size() - 1);
+            System.out.println(releasedCar.getModelName() + " released from the workshop.");
+            return releasedCar;
+        } else {
+            System.out.println("Workshop is empty.");
+            return null;
+        }
+    }
     public static void main(String[] args) {
         Workshop<Volvo> volvoWorkshop = new Workshop<>(3);
         Workshop<Saab> saabWorkshop = new Workshop<>(2);
@@ -46,7 +45,6 @@ public class Workshop<T extends Cars> {
         carTransport.lowerRamp();
         carTransport.lassa(new Volvo());
         carTransport.lassa(new Saab());
-
         volvoWorkshop.acceptCarTransport(carTransport);
 
         Volvo releasedVolvo = volvoWorkshop.releaseCar();
