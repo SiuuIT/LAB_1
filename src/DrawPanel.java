@@ -11,10 +11,15 @@ public class DrawPanel extends JPanel{
 
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
-    // To keep track of a singel cars position
-    Point volvoPoint = new Point();
+    BufferedImage saabImage;
+    BufferedImage scaniaImage;
 
-    // TODO: Make this genereal for all cars
+
+    // To keep track of a single cars position
+    Point carPoint = new Point();
+
+
+    // TODO: Make this general for all cars
     void moveit(int x, int y){
         volvoPoint.x = x;
         volvoPoint.y = y;

@@ -14,7 +14,7 @@ public class CarController {
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
-    // The timer is started with an listener (see below) that executes the statements
+    // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
 
