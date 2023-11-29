@@ -47,7 +47,7 @@ public class CarTransport extends Cars {
     }
     public void unload(Cars car) {
         if (this.carList != null && !this.carList.isEmpty()) {
-            this.carList.removeLast();
+            this.carList.remove(carList.size()-1);
             car.y_coordinate = this.y_coordinate - 5;
         }
     }
