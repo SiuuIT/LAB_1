@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 /*
 * This class represents the Controller part in the MVC pattern.
-* It's responsibilities is to listen to the View and responds in a appropriate manner by
+* Its responsibilities are to listen to the View and responds in an appropriate manner by
 * modifying the model state and the updating the view.
  */
 
-public class CarController {
+public class CarController extends Cars{
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -23,7 +23,6 @@ public class CarController {
     // A list of cars, modify if needed
     ArrayList<Cars> cars = new ArrayList<>();
 
-
     //methods:
 
     public static void main(String[] args) {
@@ -31,8 +30,6 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.cars.add(new Volvo());
-        cc.cars.add(new Saab());
-        cc.cars.add(new Scania());
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -50,17 +47,9 @@ public class CarController {
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
-                //getPosition(). maybe
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
-                if (car.getX() > Math.abs(800) || car.getY() > Math.abs(530)){
-                    car.brake(1);
-                    if(car.direction == Cars.Directions.SOUTH){
-                    car.direction = Cars.Directions.NORTH;
-                    }
-                    car.currentSpeed = 1;
-                }
             }
         }
     }
@@ -72,28 +61,12 @@ public class CarController {
                 ) {
             car.gas(gas);
         }
-    }// Calls the brake method for each car once
-    void brake(int amount) {
+    }
+    void brake(int amount){
         double brake = ((double) amount) / 100;
-        for (Cars car : cars) {
-        car.brake(brake);
+        for (Cars car : cars
+                ) {
+            car.brake(brake);
         }
-    }
-    void turnLeft() {
-        for (Cars car : cars) {
-            car.turnLeft();
-        }
-    }
-    void turnRight(){
-        for(Cars car : cars){
-            car.turnRight();
-            }
-        }
-    void setTurboOn(){
-
-        saab.setTurboOn(); //????????????????????????????
-    }
-    void lowerBed(){
-        for()
     }
 }

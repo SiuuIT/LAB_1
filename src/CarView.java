@@ -29,10 +29,8 @@ public class CarView extends JFrame{
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
     int gasAmount = 0;
+    int raiseAmount = 5;
     JLabel gasLabel = new JLabel("Amount of gas");
-    int brakeAmount = 0;
-    JLabel brakeLabel = new JLabel("Amount of break");
-
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
     JButton turboOnButton = new JButton("Saab Turbo on");
@@ -42,8 +40,7 @@ public class CarView extends JFrame{
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
-    JButton turnLeftButton = new JButton("Turn Left");
-    JButton turnRightButton = new JButton("Turn Right");
+
 
 
     // Constructor
@@ -70,11 +67,7 @@ public class CarView extends JFrame{
                         100, //max
                         1);//step
         gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
-            }
-        });
+        gasSpinner.addChangeListener(e -> gasAmount = (int) ((JSpinner)e.getSource()).getValue());
 
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
@@ -82,7 +75,7 @@ public class CarView extends JFrame{
 
         this.add(gasPanel);
 
-        controlPanel.setLayout(new GridLayout(2,4));
+        controlPanel.setLayout(new GridLayout(2,3));
 
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
@@ -90,18 +83,15 @@ public class CarView extends JFrame{
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
-        controlPanel.add(turnLeftButton, 6);
-        controlPanel.add(turnRightButton, 7);
+
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
-
 
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
         startButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(startButton);
-
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
@@ -110,37 +100,13 @@ public class CarView extends JFrame{
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
-        gasButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.gas(gasAmount);
-            }
-        });
+        gasButton.addActionListener(e -> carC.gas(gasAmount));
+        brakeButton.addActionListener(e -> carC.brake(gasAmount));
 
-        brakeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) { carC.brake(gasAmount); }
-        });
-        turnRightButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.turnRight();
-            }
-        });
-
-        turboOffButton.addActionListener(new ActionListener() {
-            @Override
-           public void actionPerformed(ActionEvent e) {
-               carC.setTurboOn(); }
-        });
-
-
-        turnLeftButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {carC.turnLeft(); }
-        });
-
-        // Make the frame pack all it's components by respecting the sizes if possible.
+        //turboOnButton.addActionListener(e -> carC.setTurboOn());
+        //turboOffButton.addActionListener(e -> carC.setTurboOff());
+        //liftBedButton.addActionListener(e -> carC.raise(raiseAmount));
+        // Make the frame pack all its components by respecting the sizes if possible.
         this.pack();
 
         // Get the computer screen resolution
