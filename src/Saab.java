@@ -1,8 +1,8 @@
 import java.awt.*;
 
 public class Saab extends Cars{
-    private boolean turboOn;
-    protected Saab(){
+    protected boolean turboOn;
+    protected Saab(int x, int y){
         direction = Directions.NORTH;
         nrDoors = 2;
         color = Color.red;
@@ -20,6 +20,7 @@ public class Saab extends Cars{
         return turboOn;
 
     }
+
     @Override
     protected double speedFactor(){
         double turbo = 1;

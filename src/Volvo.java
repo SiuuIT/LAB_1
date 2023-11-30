@@ -1,7 +1,7 @@
 import java.awt.*;
 
 class Volvo extends Cars {
-    protected Volvo(){
+    protected Volvo(int x, int y){
         direction = Directions.NORTH;
         nrDoors = 4;
         color = Color.black;
@@ -9,6 +9,7 @@ class Volvo extends Cars {
         modelName = "Volvo240";
         stopEngine();
     }
+
     public final static double trimFactor = 1.25;
     @Override
     protected double speedFactor(){

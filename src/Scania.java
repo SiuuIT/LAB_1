@@ -1,7 +1,7 @@
 import java.awt.*;
 public class Scania extends Cars {
     private Ramp ramp;
-    protected Scania() {
+    protected Scania(int x, int y) {
         direction = Directions.NORTH;
         nrDoors = 2;
         color = Color.blue;
@@ -10,6 +10,8 @@ public class Scania extends Cars {
         this.ramp = new Ramp();
         stopEngine();
     }
+
+
     @Override
     protected double speedFactor() {
         return 1;
