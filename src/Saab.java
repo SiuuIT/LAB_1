@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Saab extends Cars{
     protected boolean turboOn;
-    protected Saab(int x , int y){
+    protected Saab(int x, int y){
         direction = Directions.NORTH;
         nrDoors = 2;
         color = Color.red;
