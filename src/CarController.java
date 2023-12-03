@@ -95,26 +95,26 @@ public class CarController {
         }
     }
 
-    void saabTurboOn () {
+    void setTurboOn () {
         for (Saab saab95: saab95s) {
             saab95.turboOn = true;
         }
     }
 
-    void saabTurboOff () {
+    void setTurboOff () {
         for (Saab saab95: saab95s) {
             saab95.turboOn = false;
         }
     }
 
-    void scaniaLiftBed(){
+    void raiseAngle(){
         for(Scania scania: scanias){
             scania.raiseAngle(0);
         }
     }
 
 
-    void scaniaLowerBed() {
+    void lowerAngle() {
         for(Scania scania: scanias) {
             scania.lowerAngle(0);
         }
