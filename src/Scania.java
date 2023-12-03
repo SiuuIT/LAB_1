@@ -10,8 +10,6 @@ public class Scania extends Cars {
         this.ramp = new Ramp();
         stopEngine();
     }
-
-
     @Override
     protected double speedFactor() {
         return 1;
