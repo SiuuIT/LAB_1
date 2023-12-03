@@ -9,6 +9,7 @@ class Volvo extends Cars {
         modelName = "Volvo240";
         stopEngine();
     }
+
     public final static double trimFactor = 1.25;
     @Override
     protected double speedFactor(){

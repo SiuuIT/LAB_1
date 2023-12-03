@@ -81,17 +81,14 @@ public abstract class Cars implements Movable {
     }
 
     public void move() {
-        if (direction == Directions.NORTH) {
-            x_coordinate += currentSpeed;
-        }
         if (direction == Directions.WEST) {
-            y_coordinate -= currentSpeed;
-        }
-        if (direction == Directions.SOUTH) {
-            x_coordinate -= currentSpeed;
-        }
-        if (direction == Directions.EAST) {
-            y_coordinate += currentSpeed;
+            x_coordinate -= getCurrentSpeed();
+        } else if (direction == Directions.EAST) {
+            x_coordinate += getCurrentSpeed();
+        } else if (direction == Directions.SOUTH) {
+            y_coordinate -= getCurrentSpeed();
+        } else {
+            y_coordinate = y_coordinate + getCurrentSpeed();
         }
     }
 
