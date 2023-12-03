@@ -119,5 +119,4 @@ public class CarController {
             scania.lowerAngle(0);
         }
     }
-    // Other methods (gas, brake, startAllCars, stopAllCars, saabTurboOn, saabTurboOff, scaniaLiftBed, scaniaLowerBed)...
 }
