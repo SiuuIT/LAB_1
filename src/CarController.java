@@ -109,14 +109,22 @@ public class CarController {
 
     void raiseAngle(){
         for(Scania scania: scanias){
-            scania.raiseAngle(0);
+            if (scania.getCurrentSpeed() == 0 && scania.getTruckBedAngle() == 0) {
+                scania.raiseAngle(30);
+                scania.enginePower = 0;
+            }
         }
     }
 
 
     void lowerAngle() {
         for(Scania scania: scanias) {
-            scania.lowerAngle(0);
+
+                if (scania.getTruckBedAngle() != 0){
+                    scania.lowerAngle(30);
+                    scania.enginePower = 400;
+
+            }
         }
     }
 }

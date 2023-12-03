@@ -102,40 +102,17 @@ public class CarView extends JFrame{
         gasButton.addActionListener(e -> carC.gas(gasAmount));
         brakeButton.addActionListener(e -> carC.brake(gasAmount));
 
-        turboOnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {carC.setTurboOn();}
-        });
-        turboOffButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {carC.setTurboOff();}
-        });
+        turboOnButton.addActionListener(e -> carC.setTurboOn());
+        turboOffButton.addActionListener(e -> carC.setTurboOff());
 
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {carC.startAllCars();}
-        });
-        stopButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {carC.stopAllCars();}
-        });
+        startButton.addActionListener(e -> carC.startAllCars());
+        stopButton.addActionListener(e -> carC.stopAllCars());
 
-        liftBedButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {carC.raiseAngle();}
-        });
-        lowerBedButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {carC.lowerAngle();}
-        });
+        liftBedButton.addActionListener(e -> carC.raiseAngle());
+        lowerBedButton.addActionListener(e -> carC.lowerAngle());
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
 
-        //turboOnButton.addActionListener(e -> carC.setTurboOn());
-        //turboOffButton.addActionListener(e -> carC.setTurboOff());
-        //liftBedButton.addActionListener(e -> carC.raise(raiseAmount));
-        // Make the frame pack all its components by respecting the sizes if possible.
-        this.pack();
 
         // Get the computer screen resolution
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
