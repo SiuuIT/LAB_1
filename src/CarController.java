@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class CarController {
     private final int delay = 50;
+    private boolean engineStatus = false;
     private Timer timer = new Timer(delay, new TimerListener());
 
     CarView frame;
@@ -73,7 +74,8 @@ public class CarController {
         double gas = ((double) amount) / 100;
         for (Cars car : cars
         ) {
-            car.gas(gas);
+            if (engineStatus){
+            car.gas(gas);}
         }
     }
     void brake(int amount){
@@ -86,12 +88,14 @@ public class CarController {
     void startAllCars () {
         for (Cars car : cars) {
             car.startEngine();
+            engineStatus = true;
         }
     }
 
     void  stopAllCars() {
         for (Cars car : cars) {
             car.stopEngine();
+            engineStatus = false;
         }
     }
 
